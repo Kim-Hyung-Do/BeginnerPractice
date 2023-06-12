@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    tools {
+        gradle 'gradle'
+    }
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/woowacourse-teams/2022-momo.githttps://github.com/Kim-Hyung-Do/BeginnerPractice/blob/main/README.md'
+            }
+        }
+          {
+            steps {
+                dir("./backend") {
+                    sh "./gradlew clean build"
+                }
+            }
+        }
+    }
+}
